@@ -117,4 +117,7 @@ public class Announcement {
     @ManyToOne
     @JsonIgnore // This annotation may be needed to prevent infinite recursion during serialization
     User user;
+
+    @ManyToMany
+    List<Folder> folders;
 }

@@ -5,6 +5,9 @@ import java.util.List;
 import javax.annotation.processing.Generated;
 import se331.project.rest.entity.Announcement;
 import se331.project.rest.entity.AnnouncementDTO;
+import se331.project.rest.entity.Folder;
+import se331.project.rest.entity.FolderDTO;
+import se331.project.rest.entity.FolderOwnAnnouncementDTO;
 import se331.project.rest.entity.Student;
 import se331.project.rest.entity.StudentDTO;
 import se331.project.rest.entity.StudentTeacherDTO;
@@ -16,7 +19,7 @@ import se331.project.rest.security.user.User;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2567-03-15T14:35:11+0700",
+    date = "2567-03-15T16:15:21+0700",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 20.0.2 (Oracle Corporation)"
 )
 public class LabMapperImpl implements LabMapper {
@@ -160,6 +163,10 @@ public class LabMapperImpl implements LabMapper {
         if ( list5 != null ) {
             announcementDTO.recipeInstructions( new ArrayList<String>( list5 ) );
         }
+        List<Folder> list6 = announcement.getFolders();
+        if ( list6 != null ) {
+            announcementDTO.folders( new ArrayList<Folder>( list6 ) );
+        }
 
         return announcementDTO.build();
     }
@@ -173,6 +180,35 @@ public class LabMapperImpl implements LabMapper {
         List<AnnouncementDTO> list = new ArrayList<AnnouncementDTO>( announcement.size() );
         for ( Announcement announcement1 : announcement ) {
             list.add( getAnnouncementDTO( announcement1 ) );
+        }
+
+        return list;
+    }
+
+    @Override
+    public FolderDTO getFolderDTO(Folder folder) {
+        if ( folder == null ) {
+            return null;
+        }
+
+        FolderDTO.FolderDTOBuilder folderDTO = FolderDTO.builder();
+
+        folderDTO.id( folder.getId() );
+        folderDTO.name( folder.getName() );
+        folderDTO.ownAnnouncement( announcementListToFolderOwnAnnouncementDTOList( folder.getOwnAnnouncement() ) );
+
+        return folderDTO.build();
+    }
+
+    @Override
+    public List<FolderDTO> getFolderDTO(List<Folder> folder) {
+        if ( folder == null ) {
+            return null;
+        }
+
+        List<FolderDTO> list = new ArrayList<FolderDTO>( folder.size() );
+        for ( Folder folder1 : folder ) {
+            list.add( getFolderDTO( folder1 ) );
         }
 
         return list;
@@ -412,5 +448,35 @@ public class LabMapperImpl implements LabMapper {
             return null;
         }
         return department;
+    }
+
+    protected FolderOwnAnnouncementDTO announcementToFolderOwnAnnouncementDTO(Announcement announcement) {
+        if ( announcement == null ) {
+            return null;
+        }
+
+        FolderOwnAnnouncementDTO.FolderOwnAnnouncementDTOBuilder folderOwnAnnouncementDTO = FolderOwnAnnouncementDTO.builder();
+
+        folderOwnAnnouncementDTO.recipeId( announcement.getRecipeId() );
+        folderOwnAnnouncementDTO.name( announcement.getName() );
+        List<String> list = announcement.getDescription();
+        if ( list != null ) {
+            folderOwnAnnouncementDTO.description( new ArrayList<String>( list ) );
+        }
+
+        return folderOwnAnnouncementDTO.build();
+    }
+
+    protected List<FolderOwnAnnouncementDTO> announcementListToFolderOwnAnnouncementDTOList(List<Announcement> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        List<FolderOwnAnnouncementDTO> list1 = new ArrayList<FolderOwnAnnouncementDTO>( list.size() );
+        for ( Announcement announcement : list ) {
+            list1.add( announcementToFolderOwnAnnouncementDTO( announcement ) );
+        }
+
+        return list1;
     }
 }

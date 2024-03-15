@@ -44,6 +44,8 @@ public class AnnouncementDTO {
     String recipeServings;
     String recipeYield;
     List<String>  recipeInstructions;
+
+    List<Folder> folders;
 //    Long recipeId;
 //    String title;
 //    String description;

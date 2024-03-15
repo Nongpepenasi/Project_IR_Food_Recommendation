@@ -61,4 +61,10 @@ public interface LabMapper {
     @Mapping(source = "recipeYield", target = "recipeYield")
     @Mapping(source = "recipeInstructions", target = "recipeInstructions")
     List <AnnouncementDTO> getAnnouncementDTO(List<Announcement> announcement);
+
+    FolderDTO getFolderDTO(Folder folder);
+
+    @Mapping(source = "ownAnnouncement", target = "ownAnnouncement")
+    @Mapping(source = "name", target = "name")
+    List<FolderDTO> getFolderDTO(List<Folder> folder);
 }

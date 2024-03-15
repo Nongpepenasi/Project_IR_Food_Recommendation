@@ -48,6 +48,9 @@ public class SecurityConfiguration {
                       .requestMatchers(HttpMethod.PUT,"/updatestudents").permitAll()
                       .requestMatchers(HttpMethod.PUT,"/updateteachers").permitAll()
                       .requestMatchers(HttpMethod.POST,"/uploadFile").permitAll()
+                      .requestMatchers(HttpMethod.GET, "/folder/**").permitAll()
+                      .requestMatchers(HttpMethod.POST, "/addFolder").permitAll()
+                      .requestMatchers(HttpMethod.POST, "/deleteFolder/**").permitAll()
                       .anyRequest().authenticated();
             })
 
