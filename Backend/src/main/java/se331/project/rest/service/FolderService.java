@@ -14,5 +14,7 @@ public interface FolderService {
     Folder getFolder(Long id);
     Folder addFolder(Folder folder);
     Folder deleteFolder(Long id);
+    Folder addRecipe(Long recipeId, Long id);
+    Folder deleteRecipe(Long recipeId, Long id);
 //    List<Announcement> saveRecipes(List<Announcement> recipes);
 }

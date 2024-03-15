@@ -8,6 +8,7 @@ import se331.project.rest.dao.AnnouncementDao;
 import se331.project.rest.dao.FolderDao;
 import se331.project.rest.entity.Announcement;
 import se331.project.rest.entity.Folder;
+import se331.project.rest.entity.Teacher;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ import java.util.List;
 public class FolderServiceImpl implements FolderService {
 
     final FolderDao folderDao;
+    final AnnouncementDao announcementDao;
     @Override
     public Integer getFolderSize() {
         return folderDao.getFolderSize();
@@ -49,6 +51,36 @@ public class FolderServiceImpl implements FolderService {
     @Override
     public Folder deleteFolder(Long id) {
         return folderDao.deleteFolder(id);
+    }
+
+    @Override
+    public Folder addRecipe(Long recipeId, Long id) {
+        Folder updateFolder = folderDao.getFolder(id);
+        Announcement updateAnnouncement = announcementDao.getAnnouncement(recipeId);
+        if (updateFolder != null) {
+            updateFolder.getOwnAnnouncement().add(announcementDao.getAnnouncement(recipeId));
+            updateAnnouncement.getFolders().add(updateFolder);
+
+            folderDao.save(updateFolder);
+            announcementDao.save(updateAnnouncement);
+            return updateFolder;
+        }
+        return null;
+    }
+
+    @Override
+    public Folder deleteRecipe(Long recipeId, Long id) {
+        Folder updateFolder = folderDao.getFolder(id);
+        Announcement updateAnnouncement = announcementDao.getAnnouncement(recipeId);
+        if (updateFolder != null) {
+            updateFolder.getOwnAnnouncement().remove(announcementDao.getAnnouncement(recipeId));
+            updateAnnouncement.getFolders().remove(updateFolder);
+
+            folderDao.save(updateFolder);
+            announcementDao.save(updateAnnouncement);
+            return updateFolder;
+        }
+        return null;
     }
 
 //    @Override

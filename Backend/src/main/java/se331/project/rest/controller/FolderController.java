@@ -18,6 +18,19 @@ import se331.project.rest.util.LabMapper;
 public class FolderController {
     final FolderService folderService;
 
+    public static class AddRecipeRequest {
+        private Long recipeId;
+        private Long id;
+
+        public Long getRecipeId(){
+            return recipeId;
+        }
+
+        public Long getId(){
+            return id;
+        }
+    }
+
     @GetMapping("folders")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> getFolders() {
@@ -59,6 +72,22 @@ public class FolderController {
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> deleteFolder(@PathVariable("id") Long id) {
         return ResponseEntity.ok(LabMapper.INSTANCE.getFolderDTO(folderService.deleteFolder(id)));
+    }
+
+    @PostMapping("addRecipe")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<?> addRecipe(@RequestBody AddRecipeRequest request) {
+        Long recipeId = request.getRecipeId();
+        Long id = request.getId();
+        return ResponseEntity.ok(LabMapper.INSTANCE.getFolderDTO(folderService.addRecipe(recipeId, id)));
+    }
+
+    @PostMapping("deleteRecipe")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<?> deleteRecipe(@RequestBody AddRecipeRequest request) {
+        Long recipeId = request.getRecipeId();
+        Long id = request.getId();
+        return ResponseEntity.ok(LabMapper.INSTANCE.getFolderDTO(folderService.deleteRecipe(recipeId, id)));
     }
 
 //    @PostMapping("announcement")

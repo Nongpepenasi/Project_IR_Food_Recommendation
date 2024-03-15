@@ -51,6 +51,8 @@ public class SecurityConfiguration {
                       .requestMatchers(HttpMethod.GET, "/folder/**").permitAll()
                       .requestMatchers(HttpMethod.POST, "/addFolder").permitAll()
                       .requestMatchers(HttpMethod.POST, "/deleteFolder/**").permitAll()
+                      .requestMatchers(HttpMethod.POST, "/addRecipe").permitAll()
+                      .requestMatchers(HttpMethod.POST, "/deleteRecipe").permitAll()
                       .anyRequest().authenticated();
             })
 
