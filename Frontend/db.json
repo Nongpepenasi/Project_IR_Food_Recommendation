@@ -1,0 +1,266 @@
+{
+    "students": [
+      {
+        "name": "John",
+        "surname": "Doe",
+        "id": "123456",
+        "profileimage": "https://rebrand.ly/xz81uz9",
+        "courselist": ["Math", "Science"],
+        "teacherID": "T123",
+        "comment": []
+      },
+      {
+        "name": "Jane",
+        "surname": "Smith",
+        "id": "789012",
+        "profileimage": "https://rb.gy/1jp8m",
+        "courselist": ["History", "English"],
+        "teacherID": "T234",
+        "comment": []
+      },
+      {
+        "name": "Michael",
+        "surname": "Johnson",
+        "id": "345678",
+        "profileimage": "https://tinyurl.com/zu943zf6",
+        "courselist": ["Physics", "ComSci"],
+        "teacherID": "T789",
+        "comment": []
+      },
+      {
+        "name": "Emily",
+        "surname": "Brown",
+        "id": "456789",
+        "profileimage": "https://rb.gy/44kto",
+        "courselist": ["Art", "Music"],
+        "teacherID": "T345",
+        "comment": []
+      },
+      {
+        "name": "David",
+        "surname": "Wilson",
+        "id": "567890",
+        "profileimage": "https://rebrand.ly/ul1z0wk",
+        "courselist": ["Biology", "Chemistry"],
+        "teacherID": "T901",
+        "comment": []
+      },
+      {
+        "name": "Olivia",
+        "surname": "Martinez",
+        "id": "678901",
+        "profileimage": "https://rb.gy/p5upi",
+        "courselist": ["Spanish", "History"],
+        "teacherID": "T234",
+        "comment": []
+      },
+      {
+        "name": "Ethan",
+        "surname": "Anderson",
+        "id": "789012",
+        "profileimage": "https://shorturl.at/aEU38",
+        "courselist": ["Math", "Physics"],
+        "teacherID": "T123",
+        "comment": []
+      },
+      {
+        "name": "Sophia",
+        "surname": "Taylor",
+        "id": "890123",
+        "profileimage": "https://rb.gy/v5fjc",
+        "courselist": ["English", "Literature"],
+        "teacherID": "T234",
+        "comment": []
+      },
+      {
+        "name": "Daniel",
+        "surname": "Thomas",
+        "id": "901234",
+        "profileimage": "https://rebrand.ly/35uqc75",
+        "courselist": ["History", "PolSci"],
+        "teacherID": "T345",
+        "comment": []
+      },
+      {
+        "name": "Ava",
+        "surname": "Jackson",
+        "id": "123450",
+        "profileimage": "https://rb.gy/pbyzw",
+        "courselist": ["Biology", "Chemistry"],
+        "teacherID": "T567",
+        "comment": []
+      },
+      {
+        "name": "William",
+        "surname": "Lee",
+        "id": "234561",
+        "profileimage": "https://rebrand.ly/l27gc2a",
+        "courselist": ["History", "Philosophy"],
+        "teacherID": "T678",
+        "comment": []
+      },
+      {
+        "name": "Sofia",
+        "surname": "Garcia",
+        "id": "345612",
+        "profileimage": "https://tinyurl.com/yftuesm4",
+        "courselist": ["Math", "ComSci"],
+        "teacherID": "T123",
+        "comment": []
+      },
+      {
+        "name": "James",
+        "surname": "Pee",
+        "id": "456123",
+        "profileimage": "https://rebrand.ly/d3776b",
+        "courselist": ["Sports", "PE"],
+        "teacherID": "T890",
+        "comment": []
+      },
+      {
+        "name": "Isabella",
+        "surname": "Lopez",
+        "id": "567234",
+        "profileimage": "https://rebrand.ly/mqqbv3v",
+        "courselist": ["Art", "Drama"],
+        "teacherID": "T456",
+        "comment": []
+      },
+      {
+        "name": "Elijah",
+        "surname": "Harris",
+        "id": "678345",
+        "profileimage": "https://rebrand.ly/dy9uhoc",
+        "courselist": ["Science", "Astronomy"],
+        "teacherID": "T567",
+        "comment": []
+      },
+      {
+        "name": "Robin",
+        "surname": "Clark",
+        "id": "789456",
+        "profileimage": "https://rebrand.ly/nvnjnhm",
+        "courselist": ["English", "Literature"],
+        "teacherID": "T234",
+        "comment": []
+      },
+      {
+        "name": "Benjamin",
+        "surname": "Yui",
+        "id": "890567",
+        "profileimage": "https://shorturl.at/nyLT7",
+        "courselist": ["History", "PolSci"],
+        "teacherID": "T012",
+        "comment": []
+      },
+      {
+        "name": "Charlotte",
+        "surname": "White",
+        "id": "901678",
+        "profileimage": "https://rebrand.ly/29e9h93",
+        "courselist": ["Biology", "Chemistry"],
+        "teacherID": "T456",
+        "comment": []
+      },
+      {
+        "name": "Henry",
+        "surname": "Martin",
+        "id": "123789",
+        "profileimage": "https://shorturl.at/mryF2",
+        "courselist": ["Math", "Physics"],
+        "teacherID": "T567",
+        "comment": []
+      },
+      {
+        "name": "Amelia",
+        "surname": "Adams",
+        "id": "234890",
+        "profileimage": "https://rebrand.ly/amihee8",
+        "courselist": ["Languages", "Literature"],
+        "teacherID": "T456",
+        "comment": []
+      },
+      {
+        "name": "Liam",
+        "surname": "Walker",
+        "id": "345901",
+        "profileimage": "https://shorturl.at/tyzB9",
+        "courselist": ["Music", "History"],
+        "teacherID": "T345",
+        "comment": []
+      }
+    ],
+    "teachers": [
+      {
+        "id": "T123",
+        "studentsId": ["123456"],
+        "name": "Alice",
+        "surname": "Johnson",
+        "profileimage": "https://shorturl.at/amzP4"
+      },
+      {
+        "id": "T234",
+        "studentsId": ["789012", "678901", "890123", "789456"],
+        "name": "David",
+        "surname": "Smith",
+        "profileimage": "https://shorturl.at/gvw24"
+      },
+      {
+        "id": "T345",
+        "studentsId": ["456789", "901234", "345901"],
+        "name": "Emily",
+        "surname": "Williams",
+        "profileimage": "https://shorturl.at/fIKOV"
+      },
+      {
+        "id": "T456",
+        "studentsId": ["567234", "901678", "234890"],
+        "name": "Rose",
+        "surname": "Brown",
+        "profileimage": "https://shorturl.at/fhmpx"
+      },
+      {
+        "id": "T567",
+        "studentsId": ["123450", "678345", "123789"],
+        "name": "Sarah",
+        "surname": "Miller",
+        "profileimage": "https://shorturl.at/bhjVY"
+      },
+      {
+        "id": "T678",
+        "studentsId": ["234561"],
+        "name": "John",
+        "surname": "Davis",
+        "profileimage": "https://shorturl.at/qzH69"
+      },
+      {
+        "id": "T789",
+        "studentsId": ["345678"],
+        "name": "Olivia",
+        "surname": "Wilson",
+        "profileimage": "https://shorturl.at/gtyWX"
+      },
+      {
+        "id": "T890",
+        "studentsId": ["456123"],
+        "name": "William",
+        "surname": "Anderson",
+        "profileimage": "https://shorturl.at/kw235"
+      },
+      {
+        "id": "T901",
+        "studentsId": ["567890"],
+        "name": "Sophia",
+        "surname": "Martinez",
+        "profileimage": "https://shorturl.at/ceEFN"
+      },
+      {
+        "id": "T012",
+        "studentsId": ["890567"],
+        "name": "Daniel",
+        "surname": "Taylor",
+        "profileimage": "https://shorturl.at/qHLUV"
+      }
+    ]
+  }
+  
