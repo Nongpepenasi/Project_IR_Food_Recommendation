@@ -22,6 +22,10 @@ class Indexer:
         self.es_client.options(ignore_status=400).indices.create(index='simple')
         self.es_client.options(ignore_status=[400, 404]).indices.delete(index='simple')
 
+        # for doc in documents:
+        #     self.es_client.index(index='simple', document=doc)
+        #     print(doc)
+
         with ThreadPoolExecutor(max_workers=multiprocessing.cpu_count() - 1) as executor:
             executor.map(self.index_documents, [documents])
 
