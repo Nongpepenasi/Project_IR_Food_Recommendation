@@ -23,32 +23,18 @@ export interface CommentInfo{
     comment: string;
 }
 export interface AnnouncementItem {
+    id: number
     recipeId: number;
     name: string;
-    authorId: number;
-    authorName: string;
-    cookTime: string;
-    prepTime: string;
-    totalTime: string;
-    datePublished: string;
-    description: string[];
-    images: string[];
-    recipeCategory: string;
-    keywords: string[];
-    recipeIngredientQuantities: string[];
-    recipeIngredientParts: string[];
-    aggregatedRating: number;
-    reviewCount: number;
-    calories: number;
-    fatContent: number;
-    saturatedFatContent: number;
-    cholesterolContent: number;
-    sodiumContent: number;
-    carbohydrateContent: number;
-    fiberContent: number;
-    sugarContent: number;
-    proteinContent: number;
-    recipeServings: string;
-    recipeYield: string;
-    recipeInstructions: string[];
+    description: string;
+    images: string;
+    keywords: string;
+    recipeIngredientQuantities: string;
+    recipeIngredientParts: string;
+    recipeInstructions: string;
+}
+export interface FolderItem{
+    id: number;
+    name: string;
+    ownAnnouncement: string []
 }

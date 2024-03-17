@@ -39,6 +39,28 @@ public class AuthenticationService {
   private final StudentRepository studentRepository;
   private final TeacherRepository teacherRepository;
 
+  public AuthenticationResponse register(RegisterRequest request) {
+
+    User user = User.builder()
+            .username(request.getUsername())
+            .firstname(request.getFirstname())
+            .lastname(request.getLastname())
+            .email(request.getEmail())
+            .password(passwordEncoder.encode(request.getPassword()))
+            .roles(List.of(Role.ROLE_USER))
+            .images(request.getImages())
+            .build();
+    var savedUser = repository.save(user);
+    var jwtToken = jwtService.generateToken(user);
+    var refreshToken = jwtService.generateRefreshToken(user);
+    saveUserToken(savedUser, jwtToken);
+
+    return AuthenticationResponse.builder()
+            .accessToken(jwtToken)
+            .refreshToken(refreshToken)
+            .build();
+  }
+
   public AuthenticationResponse registerStudent(RegisterRequest request) {
 
     User userStudent = User.builder()

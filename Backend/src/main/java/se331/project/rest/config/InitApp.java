@@ -1,6 +1,7 @@
 package se331.project.rest.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
@@ -49,30 +50,15 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         userRepository.save(admin);
 
 
-        String jsonFilePath = "resource/limited_recipes.json"; // ระบุ path ที่เก็บไฟล์ JSON
+        String jsonFilePath = "resource/cleaned_recipes.json"; // ระบุ path ที่เก็บไฟล์ JSON
         List<Announcement> recipes = null;
         try {
             recipes = convertJsonToEntities(jsonFilePath);
             announcementRepository.saveAll(recipes);
+            System.out.println("Success");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
-//        List<String> files = new ArrayList<>();
-//
-//        files.add("https://rb.gy/1jp8m");
-//        files.add("https://rebrand.ly/xz81uz9");
-
-//        Announcement announcement;
-//        announcement = Announcement.builder()
-//                .title("Final Exam")
-//                .description("Final Exam is tomorrow.")
-//                .files(files)
-//                .build();
-//        announcementRepository.save(announcement);
-
-
 
     }
     public static List<Announcement> convertJsonToEntities(String jsonFilePath) throws IOException {
@@ -81,4 +67,15 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 objectMapper.getTypeFactory().constructCollectionType(List.class, Announcement.class));
         return recipes;
     }
+
+//    public static List<Announcement> convertJsonToEntities(String jsonFilePath) throws IOException {
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        SimpleModule module = new SimpleModule();
+//        module.addDeserializer(Announcement.class, new CustomDeserializer());
+//        objectMapper.registerModule(module);
+//
+//        List<Announcement> recipes = objectMapper.readValue(new File(jsonFilePath),
+//                objectMapper.getTypeFactory().constructCollectionType(List.class, Announcement.class));
+//        return recipes;
+//    }
 }

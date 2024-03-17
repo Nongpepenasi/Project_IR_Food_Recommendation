@@ -19,7 +19,7 @@ import se331.project.rest.security.user.User;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2567-03-15T16:15:21+0700",
+    date = "2567-03-17T16:34:45+0700",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 20.0.2 (Oracle Corporation)"
 )
 public class LabMapperImpl implements LabMapper {
@@ -117,55 +117,18 @@ public class LabMapperImpl implements LabMapper {
 
         AnnouncementDTO.AnnouncementDTOBuilder announcementDTO = AnnouncementDTO.builder();
 
+        announcementDTO.id( announcement.getId() );
         announcementDTO.recipeId( announcement.getRecipeId() );
         announcementDTO.name( announcement.getName() );
-        announcementDTO.authorId( announcement.getAuthorId() );
-        announcementDTO.authorName( announcement.getAuthorName() );
-        announcementDTO.cookTime( announcement.getCookTime() );
-        announcementDTO.prepTime( announcement.getPrepTime() );
-        announcementDTO.totalTime( announcement.getTotalTime() );
-        announcementDTO.datePublished( announcement.getDatePublished() );
-        List<String> list = announcement.getDescription();
+        announcementDTO.description( announcement.getDescription() );
+        announcementDTO.images( announcement.getImages() );
+        announcementDTO.keywords( announcement.getKeywords() );
+        announcementDTO.recipeIngredientQuantities( announcement.getRecipeIngredientQuantities() );
+        announcementDTO.recipeIngredientParts( announcement.getRecipeIngredientParts() );
+        announcementDTO.recipeInstructions( announcement.getRecipeInstructions() );
+        List<Folder> list = announcement.getFolders();
         if ( list != null ) {
-            announcementDTO.description( new ArrayList<String>( list ) );
-        }
-        List<String> list1 = announcement.getImages();
-        if ( list1 != null ) {
-            announcementDTO.images( new ArrayList<String>( list1 ) );
-        }
-        announcementDTO.recipeCategory( announcement.getRecipeCategory() );
-        List<String> list2 = announcement.getKeywords();
-        if ( list2 != null ) {
-            announcementDTO.keywords( new ArrayList<String>( list2 ) );
-        }
-        List<String> list3 = announcement.getRecipeIngredientQuantities();
-        if ( list3 != null ) {
-            announcementDTO.recipeIngredientQuantities( new ArrayList<String>( list3 ) );
-        }
-        List<String> list4 = announcement.getRecipeIngredientParts();
-        if ( list4 != null ) {
-            announcementDTO.recipeIngredientParts( new ArrayList<String>( list4 ) );
-        }
-        announcementDTO.aggregatedRating( announcement.getAggregatedRating() );
-        announcementDTO.reviewCount( announcement.getReviewCount() );
-        announcementDTO.calories( announcement.getCalories() );
-        announcementDTO.fatContent( announcement.getFatContent() );
-        announcementDTO.saturatedFatContent( announcement.getSaturatedFatContent() );
-        announcementDTO.cholesterolContent( announcement.getCholesterolContent() );
-        announcementDTO.sodiumContent( announcement.getSodiumContent() );
-        announcementDTO.carbohydrateContent( announcement.getCarbohydrateContent() );
-        announcementDTO.fiberContent( announcement.getFiberContent() );
-        announcementDTO.sugarContent( announcement.getSugarContent() );
-        announcementDTO.proteinContent( announcement.getProteinContent() );
-        announcementDTO.recipeServings( announcement.getRecipeServings() );
-        announcementDTO.recipeYield( announcement.getRecipeYield() );
-        List<String> list5 = announcement.getRecipeInstructions();
-        if ( list5 != null ) {
-            announcementDTO.recipeInstructions( new ArrayList<String>( list5 ) );
-        }
-        List<Folder> list6 = announcement.getFolders();
-        if ( list6 != null ) {
-            announcementDTO.folders( new ArrayList<Folder>( list6 ) );
+            announcementDTO.folders( new ArrayList<Folder>( list ) );
         }
 
         return announcementDTO.build();
@@ -459,10 +422,7 @@ public class LabMapperImpl implements LabMapper {
 
         folderOwnAnnouncementDTO.recipeId( announcement.getRecipeId() );
         folderOwnAnnouncementDTO.name( announcement.getName() );
-        List<String> list = announcement.getDescription();
-        if ( list != null ) {
-            folderOwnAnnouncementDTO.description( new ArrayList<String>( list ) );
-        }
+        folderOwnAnnouncementDTO.description( announcement.getDescription() );
 
         return folderOwnAnnouncementDTO.build();
     }

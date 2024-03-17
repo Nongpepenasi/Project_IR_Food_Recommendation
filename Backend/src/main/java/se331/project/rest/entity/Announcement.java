@@ -20,95 +20,35 @@ public class Announcement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Exclude
+    Long id;
+
     @JsonProperty("RecipeId")
     Long recipeId;
 
     @JsonProperty("Name")
     String name;
 
-    @JsonProperty("AuthorId")
-    Long authorId;
-
-    @JsonProperty("AuthorName")
-    String authorName;
-
-    @JsonProperty("CookTime")
-    String cookTime;
-
-    @JsonProperty("PrepTime")
-    String prepTime;
-
-    @JsonProperty("TotalTime")
-    String totalTime;
-
-    @JsonProperty("DatePublished")
-    String datePublished;
-
-    @ElementCollection
+    @Column(length = 1000)
     @JsonProperty("Description")
-    List<String> description;
+    String description;
 
-    @ElementCollection
     @JsonProperty("Images")
-    List<String> images;
+    String images;
 
-    @JsonProperty("RecipeCategory")
-    String recipeCategory;
-
-    @ElementCollection
     @JsonProperty("Keywords")
-    List<String> keywords;
+    String keywords;
 
-    @ElementCollection
+    @Column(length = 1000)
     @JsonProperty("RecipeIngredientQuantities")
-    List<String> recipeIngredientQuantities;
+    String recipeIngredientQuantities;
 
-    @ElementCollection
+    @Column(length = 1000)
     @JsonProperty("RecipeIngredientParts")
-    List<String> recipeIngredientParts;
+    String recipeIngredientParts;
 
-    @JsonProperty("AggregatedRating")
-    Double aggregatedRating;
-
-    @JsonProperty("ReviewCount")
-    Long reviewCount;
-
-    @JsonProperty("Calories")
-    Double calories;
-
-    @JsonProperty("FatContent")
-    Double fatContent;
-
-    @JsonProperty("SaturatedFatContent")
-    Double saturatedFatContent;
-
-    @JsonProperty("CholesterolContent")
-    Double cholesterolContent;
-
-    @JsonProperty("SodiumContent")
-    Double sodiumContent;
-
-    @JsonProperty("CarbohydrateContent")
-    Double carbohydrateContent;
-
-    @JsonProperty("FiberContent")
-    Double fiberContent;
-
-    @JsonProperty("SugarContent")
-    Double sugarContent;
-
-    @JsonProperty("ProteinContent")
-    Double proteinContent;
-
-    @JsonProperty("RecipeServings")
-    String recipeServings;
-
-    @JsonProperty("RecipeYield")
-    String recipeYield;
-
-    @ElementCollection
+    @Column(length = 10000)
     @JsonProperty("RecipeInstructions")
-    List<String> recipeInstructions;
+    String recipeInstructions;
 
 //    String title;
 //    String description;
@@ -120,4 +60,92 @@ public class Announcement {
 
     @ManyToMany
     List<Folder> folders;
+
+
+
+
+//    @JsonProperty("RecipeId")
+//    Long recipeId;
+//
+//    @JsonProperty("Name")
+//    String name;
+//
+//    @JsonProperty("AuthorId")
+//    String authorId;
+//
+//    @JsonProperty("AuthorName")
+//    String authorName;
+//
+//    @JsonProperty("CookTime")
+//    String cookTime;
+//
+//    @JsonProperty("PrepTime")
+//    String prepTime;
+//
+//    @JsonProperty("TotalTime")
+//    String totalTime;
+//
+//    @JsonProperty("DatePublished")
+//    String datePublished;
+//
+//    @JsonProperty("Description")
+//    String description;
+//
+//    @JsonProperty("Images")
+//    String images;
+//
+//    @JsonProperty("RecipeCategory")
+//    String recipeCategory;
+//
+//    @JsonProperty("Keywords")
+//    String keywords;
+//
+//    @JsonProperty("RecipeIngredientQuantities")
+//    String recipeIngredientQuantities;
+//
+//    @JsonProperty("RecipeIngredientParts")
+//    String recipeIngredientParts;
+//
+//    @JsonProperty("AggregatedRating")
+//    String aggregatedRating;
+//
+//    @JsonProperty("ReviewCount")
+//    String reviewCount;
+//
+//    @JsonProperty("Calories")
+//    String calories;
+//
+//    @JsonProperty("FatContent")
+//    String fatContent;
+//
+//    @JsonProperty("SaturatedFatContent")
+//    String saturatedFatContent;
+//
+//    @JsonProperty("CholesterolContent")
+//    String cholesterolContent;
+//
+//    @JsonProperty("SodiumContent")
+//    String sodiumContent;
+//
+//    @JsonProperty("CarbohydrateContent")
+//    String carbohydrateContent;
+//
+//    @JsonProperty("FiberContent")
+//    String fiberContent;
+//
+//    @JsonProperty("SugarContent")
+//    String sugarContent;
+//
+//    @JsonProperty("ProteinContent")
+//    String proteinContent;
+//
+//    @JsonProperty("RecipeServings")
+//    String recipeServings;
+//
+//    @JsonProperty("RecipeYield")
+//    String recipeYield;
+//
+//    @JsonProperty("RecipeInstructions")
+//    String recipeInstructions;
+
 }

@@ -14,5 +14,5 @@ import java.util.List;
 public class FolderOwnAnnouncementDTO {
     Long recipeId;
     String name;
-    List<String> description;
+    String description;
 }

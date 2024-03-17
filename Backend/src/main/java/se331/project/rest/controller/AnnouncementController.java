@@ -10,13 +10,17 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import se331.project.rest.entity.Announcement;
 import se331.project.rest.entity.Student;
+import se331.project.rest.repository.AnnouncementRepository;
 import se331.project.rest.service.AnnouncementService;
 import se331.project.rest.util.LabMapper;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 public class AnnouncementController {
     final AnnouncementService announcementService;
+    final AnnouncementRepository announcementRepository;
 
     @GetMapping("announcements")
     @CrossOrigin(origins = "http://localhost:3000")
@@ -45,6 +49,12 @@ public class AnnouncementController {
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The given id is not found");
         }
+    }
+
+    @PostMapping("announcements")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<?> postAnnouncement(@RequestBody List<Announcement> announcements) {
+        return ResponseEntity.ok(announcementService.saveRecipes(announcements));
     }
 //    @PostMapping("announcement")
 //    public ResponseEntity<?> addAnnouncement(@RequestBody Announcement announcement) {

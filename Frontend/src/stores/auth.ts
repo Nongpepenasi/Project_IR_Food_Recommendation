@@ -93,6 +93,23 @@ export const useAuthStore = defineStore('auth', {
    
       return response
     },
+    async register(
+      username: string, 
+      firstName: string, 
+      lastName: string, 
+      email: string, 
+      password: string,
+      ) {
+      const response = await apiClient.post('/api/v1/auth/register', {
+        username: username,
+        firstname: firstName,
+        lastname: lastName,
+        email: email,
+        password: password,
+      })
+   
+      return response
+    },
     async studentUpdateProfile(id: string, firstName: string, lastName: string,images:string[]) {
       const response = await apiClient.put('/updatestudents', {
         id: id,

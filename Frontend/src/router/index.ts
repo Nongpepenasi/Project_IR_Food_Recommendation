@@ -14,12 +14,17 @@ import RegisterView from '../views/RegisterView.vue'
 import AnnouncementView from '../views/announcement/AnnouncementView.vue'
 import AnnouncementDetail from '../views/announcement/AnnouncementDetail.vue'
 import AnnouncementLayout from '../views/announcement/AnnoucementLayout.vue'
+import FolderView from '@/views/folder/FolderView.vue'
+import FolderDetail from '@/views/folder/FolderDetail.vue'
+import FolderLayout from '@/views/folder/FolderLayout.vue'
+import CreateFolder from '@/views/folder/CreateFolder.vue'
 import StudentProfile from '../views/student/StudentProfile.vue'
 import TeacherProfile from '../views/teacher/TeacherProfile.vue'
 import CreateAnnouncement from '../views/announcement/CreateAnnouncement.vue'
 import StudentProfileAdmin from '../views/student/StudentProfileAdmin.vue'
 import TeacherProfileAdmin from '../views/teacher/TeacherProfileAdmin.vue'
 import CommentView from '../views/CommentView.vue'
+import RecipeListView from '@/views/RecipeListView.vue'
 import NProgress from 'nprogress'
 import StudentService from '@/services/StudentService'
 import TeacherService from '@/services/TeacherService'
@@ -33,6 +38,7 @@ import { useAuthStore } from '@/stores/auth.ts'
 import { useAnnouncementStore } from '@/stores/announcement'
 
 import AddPerson from '../views/AddPerson.vue';
+import { useFolderStore } from '@/stores/folder'
   
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,7 +46,19 @@ const router = createRouter({
     {
       path: '/',
       name: 'home-page',
-      component: HomePage
+      component: HomePage,
+      // beforeEnter: async (to) => {
+      //   const recipeStore = useAnnouncementStore()
+      //   if (recipeStore.getAnnouncement.length === 0 ) {
+      //     await recipeStore.fetchAnnouncements
+      //     console.log("Index: "+recipeStore.getAnnouncement.length)
+      //   }
+      // }
+    },
+    {
+      path: '/recipes/:id',
+      name: 'recipes-view',
+      component: RecipeListView
     },
     {
       path: '/Login',
@@ -64,6 +82,29 @@ const router = createRouter({
           component: AnnouncementDetail
         }
       ]
+    },
+    {
+      path: '/folders',
+      name: 'folder-view',
+      component: FolderView
+    },
+    {
+      path: '/folder/:id',
+      name: 'folder-layout',
+      component: FolderLayout,
+      props: (route) => ({ id: route.params.id }),
+      children: [
+        {
+          path: '',
+          name: 'folder-detail',
+          component: FolderDetail
+        }
+      ]
+    },
+    {
+      path: '/add-folder',
+      name: 'add-folder',
+      component: CreateFolder
     },
     {
       path: '/createpost',
@@ -263,6 +304,7 @@ router.beforeEach(async () => {
   const studentStore = useStudentStore()
   const authStore = useAuthStore()
   const announcementStore = useAnnouncementStore()
+  const folderStore = useFolderStore()
   if (teacherStore.teachers.length === 0 && authStore.userRole?.includes("ROLE_ADMIN")) {
     await teacherStore.fetchTeachersFromDB()
   }
@@ -290,8 +332,13 @@ router.beforeEach(async () => {
     await studentStore.fetchStudentById(authStore.id)
     // console.log(studentStore.students)
   }
-  if (announcementStore.announcements.length === 0 ) {
+  if (announcementStore.getAnnouncement.length === 0 ) {
     await announcementStore.fetchAnnouncements()
+    // console.log("Index: "+announcementStore.getAnnouncement.length)
+  }
+  if (folderStore.getFolder.length === 0 ) {
+    await folderStore.fetchFolders()
+    // console.log("Index: "+announcementStore.getAnnouncement.length)
   }
   })
 

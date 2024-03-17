@@ -21,8 +21,15 @@ export const useAnnouncementStore = defineStore('announcement', {
             this.announcements = announcements
         },
         async fetchAnnouncements() {
-            const response = await AnnouncementService.getAnnouncements()
+            const response = await AnnouncementService.getAnnouncementsByPage(3,1)
             this.setAnnouncements(response.data)
+        },
+        async getAnnouncementsBySearch(keyword: string) {
+            const response = await AnnouncementService.getAnnouncementBySearch(keyword)
+            this.setAnnouncements(response.data)
+            AnnouncementService.postAnnouncements(response.data)
+            // console.log(response.data)
+            // console.log(this.getAnnouncement)
         }
     }
 })

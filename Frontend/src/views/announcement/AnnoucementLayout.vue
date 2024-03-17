@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import {ref} from 'vue'
-import { useStudentStore } from '@/stores/student'
-import { useTeacherStore } from '@/stores/teacher';
-import { storeToRefs } from 'pinia'
 import type { AnnouncementItem } from '@/type';
 import { useAnnouncementStore } from '@/stores/announcement';
 

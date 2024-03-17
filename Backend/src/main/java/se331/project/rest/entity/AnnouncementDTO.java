@@ -16,34 +16,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AnnouncementDTO {
+    Long id;
     Long recipeId;
     String name;
-    Long authorId;
-    String authorName;
-    String cookTime;
-    String prepTime;
-    String totalTime;
-    String datePublished;
-    List<String> description;
-    List<String>  images;
-    String recipeCategory;
-    List<String>  keywords;
-    List<String>  recipeIngredientQuantities;
-    List<String>  recipeIngredientParts;
-    Double aggregatedRating;
-    Long reviewCount;
-    Double calories;
-    Double fatContent;
-    Double saturatedFatContent;
-    Double cholesterolContent;
-    Double sodiumContent;
-    Double carbohydrateContent;
-    Double fiberContent;
-    Double sugarContent;
-    Double proteinContent;
-    String recipeServings;
-    String recipeYield;
-    List<String>  recipeInstructions;
+    String description;
+    String images;
+    String keywords;
+    String recipeIngredientQuantities;
+    String recipeIngredientParts;
+    String recipeInstructions;
 
     List<Folder> folders;
 //    Long recipeId;
@@ -51,4 +32,33 @@ public class AnnouncementDTO {
 //    String description;
 //    List<String> files;
 //    User user;
+
+//    Long recipeId;
+//    String name;
+//    String authorId;
+//    String authorName;
+//    String cookTime;
+//    String prepTime;
+//    String totalTime;
+//    String datePublished;
+//    String description;
+//    String images;
+//    String recipeCategory;
+//    String keywords;
+//    String recipeIngredientQuantities;
+//    String recipeIngredientParts;
+//    String aggregatedRating;
+//    String reviewCount;
+//    String calories;
+//    String fatContent;
+//    String saturatedFatContent;
+//    String cholesterolContent;
+//    String sodiumContent;
+//    String carbohydrateContent;
+//    String fiberContent;
+//    String sugarContent;
+//    String proteinContent;
+//    String recipeServings;
+//    String recipeYield;
+//    String recipeInstructions;
 }

@@ -17,6 +17,7 @@ import se331.project.rest.util.LabMapper;
 @RequiredArgsConstructor
 public class FolderController {
     final FolderService folderService;
+    final AnnouncementService announcementService;
 
     public static class AddRecipeRequest {
         private Long recipeId;
@@ -79,6 +80,7 @@ public class FolderController {
     public ResponseEntity<?> addRecipe(@RequestBody AddRecipeRequest request) {
         Long recipeId = request.getRecipeId();
         Long id = request.getId();
+
         return ResponseEntity.ok(LabMapper.INSTANCE.getFolderDTO(folderService.addRecipe(recipeId, id)));
     }
 
