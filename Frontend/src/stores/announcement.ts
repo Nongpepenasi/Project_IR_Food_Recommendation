@@ -30,6 +30,10 @@ export const useAnnouncementStore = defineStore('announcement', {
             AnnouncementService.postAnnouncements(response.data)
             // console.log(response.data)
             // console.log(this.getAnnouncement)
+        },
+        async getSpell(keyword: string) {
+            const response = await AnnouncementService.getSpell(keyword)
+            return response
         }
     }
 })

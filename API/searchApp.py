@@ -1,13 +1,15 @@
 import time
+from spellchecker import SpellChecker
 
 import pandas as pd
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from elasticsearch import Elasticsearch
 from flask_cors import CORS
 
 app = Flask(__name__)
 app.es_client = Elasticsearch("https://localhost:9200", basic_auth=("elastic", "CH4WXIv=zH9mPMf6n0e*"), ca_certs="~/http_ca.crt")
 CORS(app)
+
 
 
 @app.route('/search_es', methods=['GET'])
@@ -30,6 +32,20 @@ def search_es():
     # response_object['elapse'] = end - start
 
     return response_object
+
+
+@app.route('/spell', methods=['GET'])
+def spell_correction():
+    argList = request.args.to_dict(flat=False)
+    query_term = argList['query'][0]
+    spell = SpellChecker()
+    correction = spell.candidates(query_term)
+
+    if correction is not None:
+        correction = list(correction)
+
+    # jsonify({"correction": correction})
+    return jsonify(correction)
 
 
 if __name__ == '__main__':

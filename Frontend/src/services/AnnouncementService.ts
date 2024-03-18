@@ -17,4 +17,10 @@ export default {
     postAnnouncements(data: AnnouncementItem[]) : Promise<AxiosResponse<AnnouncementItem[]>> {
         return apiClient.post<AnnouncementItem[]>("/announcements", data)
     },
+    getSpell(query: string) : Promise<AxiosResponse<String[]>> {
+        const apiURL = import.meta.env.VITE_API_URL;
+        return apiClient.get<String[]>(`${apiURL}/spell?query=` + query);
+        // return apiClient.get<AnnouncementItem[]>("/announcements")
+    },
+    
 }
