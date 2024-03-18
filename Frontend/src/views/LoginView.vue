@@ -21,7 +21,7 @@
           </div>
           <div class="mt-2">
             <InputText v-model="password" type="password" class="text-emerald-600 text-sm font-semibold"
-              placeholder="Enter Password (at least 6 characters long)"></InputText>
+              placeholder="Enter Password"></InputText>
             <div v-if="errors['password']" class="text-red-500 text-sm my-2" style="font-weight: 600; font-size: small;">❌
               {{ errors['password'] }}</div>
 

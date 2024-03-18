@@ -110,7 +110,7 @@ const onSubmit = handleSubmit((values) => {
         
         <div>
           <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
-          <InputText type="text" v-model="username" class="text-emerald-600 text-sm font-semibold" placeholder="Student ID">
+          <InputText type="text" v-model="username" class="text-emerald-600 text-sm font-semibold" placeholder="username">
           </InputText>
           <div v-if="errors['username']" class="text-red-500 text-sm my-2" style="font-weight: 600; font-size: small;">❌
             {{ errors['username'] }}</div>
