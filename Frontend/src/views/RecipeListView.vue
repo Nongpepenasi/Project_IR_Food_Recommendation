@@ -33,7 +33,7 @@ onMounted(async () => {
             
         </div>
 
-        <div v-if="announcements">
+        <div v-if="announcements" class="w-1/2">
             <!-- <p>{{ announcements }}</p> -->
             <AnnouncementCard v-for="announcement in announcements" :key="announcement.recipeId" :announcement="announcement"></AnnouncementCard>
         </div>

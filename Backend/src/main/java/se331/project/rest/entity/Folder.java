@@ -21,4 +21,6 @@ public class Folder {
     @ManyToMany(mappedBy = "folders")
     @Builder.Default
     List<Announcement> ownAnnouncement = new ArrayList<>();
+    @ManyToOne
+    User user;
 }

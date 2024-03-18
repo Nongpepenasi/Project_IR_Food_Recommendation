@@ -16,21 +16,19 @@ defineProps({
   <main class="flex flex-col items-center justify-center">
     <RouterLink :to="{ name: 'announcement-detail', params: { id: announcement?.recipeId } }">
       <div
-        class="mt-5 mb-10 font-fig flex flex-col items-left justify-left p-3 w-auto sm:w-auto h-auto text-xl font-bold text-gray-900 bg-white border border-gray-300 rounded-lg shadow-md"
+      class="w-80 gap-5 grid-cols-2 p-3 h-full border border-gray-700
+        rounded-lg mb-4 bg-white shadow-md"
       >
-        <div class="flex items-center space-x-3">
-          <img
+      
+        <div class="flex space-x-3">
+          <div class=" mx-auto">
+            <img
             :src="announcement?.images"
             alt="Person's Photo"
-            class="object-cover w-20 h-20 rounded-full"
+            class="object-cover w-36 h-36 rounded-full"
           />
-          <!-- <div>
-            <p class="font-fig font-semibold text-md">{{ announcement?.authorName }}</p>
-            <p class="font-fig text-sm font-semibold text-gray-600">
-              Date: {{ announcement?.datePublished }}
-            </p>
-            <p class="font-fig text-sm font-semibold text-gray-600">Time: {{currentTime}}</p>
-          </div> -->
+          </div>
+
         </div>
         <div
           class="flex flex-col items-center mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0 sm:mb-6"
@@ -69,6 +67,7 @@ defineProps({
             />
           </div>
         </div>
+
       </div>
     </RouterLink>
   </main>

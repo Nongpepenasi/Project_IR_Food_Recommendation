@@ -5,8 +5,9 @@
             Folder(s)
         </div>
 
-    
-        <FolderCard v-for="folder in folders" :key="folder.id" :folder="folder"></FolderCard>
+        <!-- <div class="grid lg:grid-cols-3 md:grid-cols-1 gap-24 gap-y-12 mt-10 "> -->
+            <FolderCard v-for="folder in folders" :key="folder.id" :folder="folder"></FolderCard>
+        <!-- </div> -->
 
     </main>
 </template>

@@ -42,7 +42,7 @@ if (token && userRole && id) {
 
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="/" class="flex items-center">
-        <img src="../assets/bodymomb.png" class="h-[40px]">
+        <img src="../assets/bodymoml.png" class="h-[40px]">
       </a>
       <button data-collapse-toggle="navbar-default" type="button"
         class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -56,7 +56,7 @@ if (token && userRole && id) {
       <div class="hidden w-full md:block md:w-auto" id="navbar-default">
         <ul
           class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-500 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white text-black">
-          <li v-if="authStore.userRole == 'ROLE_ADMIN' || authStore.userRole == 'ROLE_TEACHER'"
+          <!-- <li v-if="authStore.userRole == 'ROLE_ADMIN' || authStore.userRole == 'ROLE_TEACHER'"
             class="font-dm mb-2 hover:bg-blue-100 p-3 rounded-md flex items-center">
             <img src="../assets/student.png" class="h-[20px] mr-2">
             <RouterLink to="/students">Students</RouterLink>
@@ -71,12 +71,12 @@ if (token && userRole && id) {
             class="font-dm mb-2 hover:bg-blue-100 p-3 rounded-md flex items-center">
             <img src="../assets/add.png" class="h-[12px] ml-1 mr-2">
             <RouterLink to="/add">Add Teacher</RouterLink>
-          </li>
+          </li> -->
           <li v-if="!authStore.userRole" class="font-dm mb-2 hover:bg-blue-100 p-3 rounded-md flex items-center">
             <img src="../assets/login.png" class="h-[12px] ml-1 mr-2">
             <RouterLink to="/Login">Login</RouterLink>
           </li>
-          <li v-if="authStore.userRole == 'ROLE_STUDENT'" 
+          <!-- <li v-if="authStore.userRole == 'ROLE_STUDENT'" 
           class="font-dm mb-2 hover:bg-blue-100 p-3 rounded-md flex items-center">
             <img src="../assets/comment.png" class="h-[18px] ml-1 mr-2 items-center">
             <RouterLink to="/comment">Comment</RouterLink>
@@ -84,8 +84,8 @@ if (token && userRole && id) {
           <li v-if="authStore.userRole == 'ROLE_STUDENT' || authStore.userRole == 'ROLE_TEACHER' || authStore.userRole == 'ROLE_ADMIN' || authStore.userRole == 'ROLE_USER'"
             class="font-dm mb-2 hover:bg-blue-100 p-3 rounded-md flex items-center">
             <img src="../assets/announce.png" class="h-[18px] ml-1 mr-2 items-center">
-            <RouterLink to="/announcements">Announcements</RouterLink>
-          </li>
+            <RouterLink to="/announcements">Recipes</RouterLink>
+          </li> -->
           <li v-if="authStore.userRole == 'ROLE_STUDENT' || authStore.userRole == 'ROLE_TEACHER' || authStore.userRole == 'ROLE_ADMIN' || authStore.userRole == 'ROLE_USER'"
             class="font-dm mb-2 hover:bg-blue-100 p-3 rounded-md flex items-center">
             <img src="../assets/comment.png" class="h-[18px] ml-1 mr-2 items-center">
@@ -101,7 +101,7 @@ if (token && userRole && id) {
             <img src="../assets/addpost.png" class="h-[18px] ml-1 mr-2 items-center">
             <RouterLink to="/createpost">Add Announcement</RouterLink>
           </li>
-          <li v-if="authStore.userRole == 'ROLE_STUDENT'"
+          <!-- <li v-if="authStore.userRole == 'ROLE_STUDENT'"
             class="font-dm mb-2 hover:bg-blue-100 p-3 rounded-md flex items-center">
             <img :src="studentStore.students[0].images[0]"
               class="ml-1 mr-2 items-center object-cover w-[25px] h-[25px]  rounded-full ring-2 ring-pink-500">
@@ -112,7 +112,7 @@ if (token && userRole && id) {
             <img :src="teacherStore.teachers[0].images[0]"
               class="ml-1 mr-2 items-center object-cover w-[25px] h-[25px]  rounded-full ring-2 ring-teal-500 shadow-md">
             <RouterLink to="/teacherprofile">Profile</RouterLink>
-          </li>
+          </li> -->
           <li v-if="authStore.userRole" class="font-dm mb-2 hover:bg-blue-100 p-3 rounded-md flex items-center">
             <a href="/" class="nav-link hover:cursor-pointer" @click="logout">
 

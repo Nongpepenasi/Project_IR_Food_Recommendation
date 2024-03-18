@@ -19,7 +19,7 @@ import se331.project.rest.security.user.User;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2567-03-17T16:34:45+0700",
+    date = "2567-03-18T00:34:36+0700",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 20.0.2 (Oracle Corporation)"
 )
 public class LabMapperImpl implements LabMapper {

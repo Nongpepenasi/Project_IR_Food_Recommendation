@@ -11,6 +11,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import se331.project.rest.entity.Announcement;
+import se331.project.rest.entity.Folder;
 import se331.project.rest.entity.Student;
 import se331.project.rest.entity.Teacher;
 import se331.project.rest.security.token.Token;
@@ -59,6 +60,8 @@ public class User implements UserDetails {
   Teacher teacher;
   @OneToOne(mappedBy = "user")
   Student student;
+  @OneToMany(mappedBy = "user")
+  List<Folder> folder;
 //  @OneToMany(mappedBy = "user")
 //  private List<Announcement> announcements;
 

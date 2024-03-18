@@ -84,6 +84,11 @@ const router = createRouter({
       ]
     },
     {
+      path: '/add-announcement',
+      name: 'add-announcement',
+      component: CreateAnnouncement
+    },
+    {
       path: '/folders',
       name: 'folder-view',
       component: FolderView

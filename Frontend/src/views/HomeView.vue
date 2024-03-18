@@ -36,10 +36,8 @@ async function searchRecipe () {
 
 <template>
   <main class="flex flex-col items-center justify-center my-5 text-black">
-    <h1 class="font-fig text-3xl font-bold  px-4 py-2 text-center">SE331 TERM PROJECT</h1>    <p class="font-mono text-center">Component-Based Software Development</p>
+    <h1 class="font-fig text-3xl font-bold  px-4 py-2 text-center">SE323 TERM PROJECT</h1>    <p class="font-mono text-center">Intro to Infomation Retriev</p>
     <br>
-    <p class="font-fig font-bold text-base ">Group Name: E-Mam_BodyMom</p>
-    <h2 class="font-fig my-2 font-bold">Team Members</h2>
     <div class="flex justify-center w-full p-3 sm:w-2/4 ">
              <input
               v-model="keyword"
